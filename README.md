@@ -1,2 +1,2 @@
 # Basketball-Game
-Narrative basketball game that scores based on math skills.
+Narrative basketball game that scores based on math skills and probability.
