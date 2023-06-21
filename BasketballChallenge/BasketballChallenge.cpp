@@ -6,9 +6,9 @@
 
 using namespace std;
 
-// add generate a random number
-// add generate probability
+// add a delay after 'calculating...'
 // add defense
+// add visuals to show angles and distance
 
 
 int main()
@@ -95,13 +95,21 @@ int main()
         cin >> answer2;
         if (answer2 == 20.1)
         {
-            score++;
-            score++;
-            cout << "You score! You now have " << score << " points." << endl;
+            cout << "You are correct! Calculating probability..." << endl;
+            if (prob1 != 1)
+            {
+                score++;
+                score++;
+                cout << "You score! You now have " << score << " points." << endl;
+            }
+            else
+            {
+                cout << "You missed!" << endl;
+            }
         }
         else
         {
-            cout << "You missed! Your score remains at " << score << " points." << endl;
+            cout << "Incorrect! Your score remains at " << score << " points." << endl;
         }
     }
        
