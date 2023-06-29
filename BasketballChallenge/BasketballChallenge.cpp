@@ -9,6 +9,11 @@ using namespace std;
 // add a delay after 'calculating...'
 // add defense
 // add visuals to show angles and distance
+// add switch
+// add header file
+// start organizing with functions
+// add for loop
+// add templated function and recursion
 
 
 int main()
@@ -18,8 +23,8 @@ int main()
     int score = 0;
     bool isCorrect;
     srand((unsigned int)time(0));
-    int rand1 = 1 + rand() % 10;
-    int prob1 = 1 + rand() % 5;
+    int rand1 = 1 + rand() % 11;
+    int prob1 = 1 + rand() % 6;
     
 
     // game begins with player having the ball
