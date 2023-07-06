@@ -3,7 +3,12 @@
 
 #include <iostream>
 #include <time.h>
+#include <chrono>
+#include <thread>
+
 using namespace std;
+using namespace std::this_thread;
+using namespace std::chrono;
 
 // add defense
 // ben = add visuals
@@ -17,7 +22,6 @@ int answer;
 double answer2;
 int score = 0;
 bool isCorrect;
-int test;
 
 
 
@@ -27,6 +31,7 @@ int PlayerOption();
 void FirstOffensivePosession();
 void SecondOffensivePosession();
 void ThirdOffensivePosession();
+void DisplayScoringVisual();
 
 int main()
 {
@@ -113,6 +118,7 @@ void FirstOffensivePosession()
             cout << "You are " << rand1 << " feet away from the basket and your teammate passes you the ball.You step back 2 feet and take a shot." << endl;
             cout << "How far away from the goal in feet are you? " << endl;
             cin >> answer;
+            DisplayScoringVisual();
             if (answer == rand1 + 2)
             {
                 cout << "Correct! Calculating probability..." << endl;
@@ -278,4 +284,84 @@ void ThirdOffensivePosession()
             break;
         }
     }
+}
+void DisplayScoringVisual()
+{
+    cout << "He shoots!" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            " << endl;
+    cout << " [|             " << endl;
+    cout << " [|=---           " << endl;
+    cout << " /  ##            o    " << endl;
+    cout << "|                      " << endl;
+    cout << "|               /  \\\\" << endl;
+    cout << "|              O_/   \\O" << endl;
+    cout << "|              T      T" << endl;
+    cout << "|              |\\    /|" << endl;
+    cout << "|______________|_|__|_|__" << endl;
+
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            " << endl;
+    cout << " [|            o" << endl;
+    cout << " [|=---           " << endl;
+    cout << " /  ##" << endl;
+    cout << "|                  \\\\" << endl;
+    cout << "|               /   \\O" << endl;
+    cout << "|              O_/   T" << endl;
+    cout << "|              T    /|" << endl;
+    cout << "|              |\\   | |" << endl;
+    cout << "|______________|_|________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "          o " << endl;
+    cout << " [|             " << endl;
+    cout << " [|=---           " << endl;
+    cout << " /  ##" << endl;
+    cout << "|                  \\\\" << endl;
+    cout << "|               /   \\O" << endl;
+    cout << "|              O_/   T" << endl;
+    cout << "|              T    /|" << endl;
+    cout << "|              |\\  | |" << endl;
+    cout << "|______________|_|________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            " << endl;
+    cout << " [|   o         " << endl;
+    cout << " [|=---           " << endl;
+    cout << " /  ##                 " << endl;
+    cout << "|                      " << endl;
+    cout << "|                  \\\\" << endl;
+    cout << "|              O    \\O" << endl;
+    cout << "|             /T\\    T" << endl;
+    cout << "|              |\\   /|" << endl;
+    cout << "|______________|_|_|_|___" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            " << endl;
+    cout << " [|             " << endl;
+    cout << " [|=---           " << endl;
+    cout << " /  ##                 " << endl;
+    cout << "|   o                  " << endl;
+    cout << "|                      " << endl;
+    cout << "|              O     O" << endl;
+    cout << "|             /T\\   /T\\" << endl;
+    cout << "|              |\\   /|" << endl;
+    cout << "|______________|_|_|_|___" << endl;
 }
