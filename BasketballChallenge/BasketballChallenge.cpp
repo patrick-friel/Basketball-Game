@@ -32,6 +32,7 @@ void FirstOffensivePosession();
 void SecondOffensivePosession();
 void ThirdOffensivePosession();
 void DisplayScoringVisual();
+void DisplayMissVisual();
 
 int main()
 {
@@ -130,11 +131,13 @@ void FirstOffensivePosession()
                 }
                 else
                 {
+                    DisplayMissVisual();
                     cout << "You missed!" << endl;
                 }
             }
             else
             {
+                DisplayMissVisual();
                 cout << "You missed! Your score remains at " << score << " points." << endl;
             }
             break;
@@ -156,11 +159,13 @@ void FirstOffensivePosession()
                 }
                 else
                 {
+                    DisplayMissVisual();
                     cout << "You missed!" << endl;
                 }
             }
             else
             {
+                DisplayMissVisual();
                 cout << "You missed!" << endl;
             }
             break;
@@ -191,11 +196,13 @@ void SecondOffensivePosession()
             }
             else
             {
+                DisplayMissVisual();
                 cout << "You missed!" << endl;
             }
         }
         else
         {
+            DisplayMissVisual();
             cout << "You missed! Your score remains at " << score << " points." << endl;
         }
         break;
@@ -217,11 +224,13 @@ void SecondOffensivePosession()
             }
             else
             {
+                DisplayMissVisual();
                 cout << "You missed!" << endl;
             }
         }
         else
         {
+            DisplayMissVisual();
             cout << "You missed!" << endl;
         }
         break;
@@ -253,11 +262,13 @@ void ThirdOffensivePosession()
                 }
                 else
                 {
+                    DisplayMissVisual();
                     cout << "You missed!" << endl;
                 }
             }
             else
             {
+                DisplayMissVisual();
                 cout << "You missed!" << endl;
             }
             break;
@@ -279,11 +290,13 @@ void ThirdOffensivePosession()
                 }
                 else
                 {
+                    DisplayMissVisual();
                     cout << "You missed!" << endl;
                 }
             }
             else
             {
+                DisplayMissVisual();
                 cout << "You missed!" << endl;
             }
             break;
@@ -373,4 +386,95 @@ void DisplayScoringVisual()
     sleep_for(nanoseconds(10));
     sleep_until(system_clock::now() + seconds(1));
     system("cls");
+}
+void DisplayMissVisual()
+{
+    system("cls");
+
+    cout << "            ________" << endl;
+    cout << "           |   __   |" << endl;
+    cout << "           |  |__|  |" << endl;
+    cout << "           |___WW___|" << endl;
+    cout << "               ||" << endl;
+    cout << "   ()          ||" << endl;
+    cout << " /o/           ||" << endl;
+    cout << "__|____________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            ________" << endl;
+    cout << "           |   __   |" << endl;
+    cout << "           |  |__|  |" << endl;
+    cout << "           |___WW___|" << endl;
+    cout << "     0         ||" << endl;
+    cout << "               ||" << endl;
+    cout << " /o/           ||" << endl;
+    cout << "__|____________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            ________" << endl;
+    cout << "           |   __   |" << endl;
+    cout << "           |  |__|  |" << endl;
+    cout << "        O  |___WW___|" << endl;
+    cout << "               ||" << endl;
+    cout << "               ||" << endl;
+    cout << " /o/           ||" << endl;
+    cout << "__|____________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            ________" << endl;
+    cout << "    (BONK!)|   __   |" << endl;
+    cout << "           |o |__|  |" << endl;
+    cout << "           |___WW___|" << endl;
+    cout << "               ||" << endl;
+    cout << "               ||" << endl;
+    cout << " /o/           ||" << endl;
+    cout << "__|____________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            ________" << endl;
+    cout << "         o |   __   |" << endl;
+    cout << "           |  |__|  |" << endl;
+    cout << "           |___WW___|" << endl;
+    cout << "               ||" << endl;
+    cout << "               ||" << endl;
+    cout << " /o/           ||" << endl;
+    cout << "__|____________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "    .       ________" << endl;
+    cout << "           |   __   |" << endl;
+    cout << "           |  |__|  |" << endl;
+    cout << "           |___WW___|" << endl;
+    cout << "               ||" << endl;
+    cout << "               ||" << endl;
+    cout << "  o            ||" << endl;
+    cout << "_/|\\___________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
+
+    cout << "            ________" << endl;
+    cout << "           |   __   |" << endl;
+    cout << "           |  |__|  |" << endl;
+    cout << "           |___WW___|" << endl;
+    cout << "               ||" << endl;
+    cout << "               ||" << endl;
+    cout << "  o <(MISSED!) ||" << endl;
+    cout << "_/|\\___________||________________" << endl;
 }
