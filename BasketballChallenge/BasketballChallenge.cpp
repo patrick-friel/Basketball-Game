@@ -17,6 +17,7 @@ int answer;
 double answer2;
 int score = 0;
 bool isCorrect;
+int test;
 
 
 
