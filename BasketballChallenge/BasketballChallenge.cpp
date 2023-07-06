@@ -17,8 +17,8 @@ int answer;
 double answer2;
 int score = 0;
 bool isCorrect;
-int rand1 = 1 + rand() % 10;
-int prob1 = 1 + rand() % 5;
+
+
 
 int StartMenu();
 void PlayGame();
@@ -63,6 +63,7 @@ int StartMenu()
 
     while (selection != 1 && selection != 2)
     {
+        system("cls");
         cout << "Please try again." << endl;
         cin >> selection;
     }
@@ -71,10 +72,9 @@ int StartMenu()
 
 void PlayGame()
 {
-    // game begins with the option of 2 or 3 point shot and simple math
+    
     FirstOffensivePosession();
 
-    // calc the hypotenuse of a right triangle
     SecondOffensivePosession();
 
     ThirdOffensivePosession();
@@ -98,8 +98,11 @@ int PlayerOption()
 
 void FirstOffensivePosession()
 {
-    cout << "The game begins and you are on offense. You can either shoot a 2 point shot with a 60% of making it or shoot a 3 point shot with a 40% of making it." << endl;
+    // game begins with the option of 2 or 3 point shot and simple math
     
+    cout << "The game begins and you are on offense. You can either shoot a 2 point shot with a 60% of making it or shoot a 3 point shot with a 40% of making it." << endl;
+    int rand1 = 1 + rand() % 10;
+    int prob1 = 1 + rand() % 5;
     int selection = PlayerOption();
 
     switch (selection)
@@ -160,6 +163,7 @@ void FirstOffensivePosession()
 void SecondOffensivePosession()
 {
     cout << "Second posession: " << endl;
+    int prob1 = 1 + rand() % 5;
     int selection = PlayerOption();
     switch (selection)
     {
@@ -220,6 +224,7 @@ void ThirdOffensivePosession()
     cout << "Third posession: " << endl;
     cout << "You have been given the ball at the top of the 3 point line which is 22 feet from the basket. You can either shoot the 3 or dribble forward 2 feet and right 2 feet and shoot a 2 point shot." << endl;
     int selection = PlayerOption();
+    int prob1 = 1 + rand() % 5;
     switch (selection)
     {
         case 1:
