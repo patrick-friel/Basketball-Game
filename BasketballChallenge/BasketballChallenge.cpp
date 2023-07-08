@@ -147,59 +147,87 @@ void FirstOffensivePosession()
             cout << "You are " << rand1 << " feet away from the basket and your teammate passes you the ball.You step back 2 feet and take a shot." << endl;
             cout << "How far away from the goal in feet are you? " << endl;
             cin >> answer;
-            if (answer == rand1 + 2)
-            {
-                system("cls");
-                cout << "Correct! Calculating probability..." << endl;
-                sleep_for(nanoseconds(10));
-                sleep_until(system_clock::now() + seconds(2));
-                system("cls");
-                if (prob1 > 2)
+            
+            for (int i = 1; i <= 4; i++)
+            {                              
+                if (i < 4)
                 {
-                    score1++;
-                    score1++;
-                    DisplayScoringVisual();
-                    cout << "You scored! You now have " << score1 << " points." << endl;
+                    if (answer == rand1 + 2)
+                    {
+                        system("cls");
+                        cout << "Correct! Calculating probability..." << endl;
+                        sleep_for(nanoseconds(10));
+                        sleep_until(system_clock::now() + seconds(2));
+                        system("cls");
+                        if (prob1 > 2)
+                        {
+                            score1++;
+                            score1++;
+                            DisplayScoringVisual();
+                            cout << "You scored! You now have " << score1 << " points." << endl;
+                        }
+                        else
+                        {
+                            cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                        }
+                        break;
+                    }
+                    else
+                    {                        
+                        cout << "Incorrect answer! Please try again: ";
+                        cin >> answer;
+                    }
                 }
-                else
+                else if (i == 4)
                 {
-                    cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                    system("cls");
+                    cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
                 }
             }
-            else
-            {
-                system("cls");
-                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
-            }
-            break;
+        break;
         }
         case 2:
         {
             cout << "You are 10 feet away from the basket. You pass the ball directly behind you 13 feet to a teammate who takes a 3 point shot. How far is he from the basket?" << endl;
             cin >> answer;
-            if (answer == 23)
+            
+            for (int i = 1; i <= 4; i++)
             {
-                system("cls");
-                cout << "Correct! Calculating probability..." << endl;
-                sleep_for(nanoseconds(10));
-                sleep_until(system_clock::now() + seconds(2));
-                system("cls");
-                if (prob1 < 3)
+                if (i < 4)
                 {
-                    score1 += 3;
-                    DisplayScoringVisual();
-                    cout << "You scored! You now have " << score1 << " points." << endl;
+                    if (answer == 23)
+                    {
+                        system("cls");
+                        cout << "Correct! Calculating probability..." << endl;
+                        sleep_for(nanoseconds(10));
+                        sleep_until(system_clock::now() + seconds(2));
+                        system("cls");
+                        if (prob1 < 3)
+                        {
+                            score1 += 3;
+                            DisplayScoringVisual();
+                            cout << "You scored! You now have " << score1 << " points." << endl;
+                        }
+                        else
+                        {
+                            cout << "You missed the shot! Your score remains at " << score1 << " points." << endl;
+                        }
+                        break;
+                    }
+                    else
+                    {                        
+                        cout << "Incorrect answer! Please try again: ";
+                        cin >> answer;
+                    }
                 }
                 else
                 {
-                    cout << "You missed the shot! Your score remains at " << score1 << " points." << endl;
+                    system("cls");
+                    cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
                 }
+                
             }
-            else
-            {
-                system("cls");
-                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
-            }
+            
             break;
         }
     }
@@ -263,59 +291,87 @@ void SecondOffensivePosession()
         {
             cout << "You are 4 feet away form the basket. You dribble 3 feet to the left and take a shot. How far away from the basket are you? ";
             cin >> answer;
-            if (answer == 5)
-            {                     
-                system("cls");
-                cout << "Correct! Calculating probability..." << endl;
-                sleep_for(nanoseconds(10));
-                sleep_until(system_clock::now() + seconds(2));
-                system("cls");
-                if (prob1 > 2)
+            
+            for (int i = 1; i <= 4; i++)
+            {
+                if (i < 4)
                 {
-                    score1++;
-                    score1++;
-                    cout << "You scored! You now have " << score1 << " points." << endl;
+                    if (answer == 5)
+                    {
+                        system("cls");
+                        cout << "Correct! Calculating probability..." << endl;
+                        sleep_for(nanoseconds(10));
+                        sleep_until(system_clock::now() + seconds(2));
+                        system("cls");
+                        if (prob1 > 2)
+                        {
+                            score1++;
+                            score1++;
+                            cout << "You scored! You now have " << score1 << " points." << endl;
+                        }
+                        else
+                        {
+                            cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                        }
+                        break;
+                    }
+                    else
+                    {                        
+                        cout << "Incorrect answer! Please try again: " << endl;
+                        cin >> answer;
+                    }
                 }
                 else
                 {
-                    cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                    system("cls");
+                    cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
                 }
             }
-            else
-            {                
-                system("cls");
-                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;                     
-            }
+            
             break;
         }
         case 2:
         {
             cout << "You are 25 feet away from the basket. You dribble 5 feet to the left. How far are you from the basket?" << endl;
             cin >> answer2;
-            if (answer2 == 25.5)
+            
+            for (int i = 1; i <= 4; i++)
             {
-                system("cls");
-                cout << "Correct! Calculating probability..." << endl;
-                sleep_for(nanoseconds(10));
-                sleep_until(system_clock::now() + seconds(2));
-                system("cls");
-                if (prob1 < 3)
+                if (i < 4)
                 {
-                    score1++;
-                    score1++;
-                    score1++;
-                    cout << "You scored! You you now have " << score1 << " points." << endl;
+                    if (answer2 == 25.5)
+                    {
+                        system("cls");
+                        cout << "Correct! Calculating probability..." << endl;
+                        sleep_for(nanoseconds(10));
+                        sleep_until(system_clock::now() + seconds(2));
+                        system("cls");
+                        if (prob1 < 3)
+                        {
+                            score1++;
+                            score1++;
+                            score1++;
+                            cout << "You scored! You you now have " << score1 << " points." << endl;
+                        }
+                        else
+                        {
+                            cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                        }
+                        break;
+                    }
+                    else
+                    {                        
+                        cout << "Incorrect answer! Please try again: " << endl;
+                        cin >> answer2;
+                    }
                 }
                 else
                 {
-                    cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                    system("cls");
+                    cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
                 }
             }
-            else
-            {
-                system("cls");
-                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
-            }
+            
             break;
         }
     }
@@ -380,59 +436,89 @@ void ThirdOffensivePosession()
         {
             cout << "You dribble to the new position. How far away from the basket are you?" << endl;
             cin >> answer2;
-            if (answer2 == 20.1)
+            
+            for (int i = 1; i <= 4; i++)
             {
-                system("cls");
-                cout << "Correct! Calculating probability..." << endl;
-                sleep_for(nanoseconds(10));
-                sleep_until(system_clock::now() + seconds(2));
-                system("cls");
-                if (prob1 > 2)
+                if (i < 4)
                 {
-                    score1++;
-                    score1++;
-                    cout << "You scored! You now have " << score1 << " points!" << endl;
+                    if (answer2 == 20.1)
+                    {
+                        system("cls");
+                        cout << "Correct! Calculating probability..." << endl;
+                        sleep_for(nanoseconds(10));
+                        sleep_until(system_clock::now() + seconds(2));
+                        system("cls");
+                        if (prob1 > 2)
+                        {
+                            score1++;
+                            score1++;
+                            cout << "You scored! You now have " << score1 << " points!" << endl;
+                        }
+                        else
+                        {
+                            cout << "You missed!" << endl;
+                        }
+                        break;
+                    }
+                    else
+                    {
+                        cout << "Incorrect answer! Please try again: " << endl;
+                        cin >> answer2;
+                    }
                 }
                 else
                 {
-                    cout << "You missed!" << endl;
+                    system("cls");
+                    cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
                 }
+                
             }
-            else
-            {
-                system("cls");
-                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
-            }
+                
+            
             break;
         }
         case 2:
         {
             cout << "You dribble back 2 feet and to the left 2 feet. How far away from the basket are you?" << endl;
             cin >> answer2;
-            if (answer2 == 24.08)
+            
+            for (int i = 1; i <= 4; i++)
             {
-                system("cls");
-                cout << "Correct! Calculating probabilty..." << endl;
-                sleep_for(nanoseconds(10));
-                sleep_until(system_clock::now() + seconds(2));
-                system("cls");
-                if (prob1 < 3)
+                if (i < 4)
                 {
-                    score1++;
-                    score1++;
-                    score1++;
-                    cout << "You scored! You now have " << score1 << " points!" << endl;
+                    if (answer2 == 24.08)
+                    {
+                        system("cls");
+                        cout << "Correct! Calculating probabilty..." << endl;
+                        sleep_for(nanoseconds(10));
+                        sleep_until(system_clock::now() + seconds(2));
+                        system("cls");
+                        if (prob1 < 3)
+                        {
+                            score1++;
+                            score1++;
+                            score1++;
+                            cout << "You scored! You now have " << score1 << " points!" << endl;
+                        }
+                        else
+                        {
+                            cout << "You missed!" << endl;
+                        }
+                        break;
+                    }
+                    else
+                    {                        
+                        cout << "Incorrect answer! Please try again: " << endl;
+                        cin >> answer2;
+                    }
                 }
                 else
                 {
-                    cout << "You missed!" << endl;
-                }
+                    system("cls");
+                    cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
+                }               
             }
-            else
-            {
-                system("cls");
-                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
-            }
+            
             break;
         }
     }
