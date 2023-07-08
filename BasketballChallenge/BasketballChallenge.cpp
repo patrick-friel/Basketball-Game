@@ -118,7 +118,6 @@ void FirstOffensivePosession()
             cout << "You are " << rand1 << " feet away from the basket and your teammate passes you the ball.You step back 2 feet and take a shot." << endl;
             cout << "How far away from the goal in feet are you? " << endl;
             cin >> answer;
-            DisplayScoringVisual();
             if (answer == rand1 + 2)
             {
                 cout << "Correct! Calculating probability..." << endl;
@@ -126,7 +125,8 @@ void FirstOffensivePosession()
                 {
                     score++;
                     score++;
-                    cout << "You scored! You now have " << score << " point." << endl;
+                    DisplayScoringVisual();
+                    //cout << "You scored! You now have " << score << " point." << endl;
                 }
                 else
                 {
@@ -151,7 +151,8 @@ void FirstOffensivePosession()
                     score++;
                     score++;
                     score++;
-                    cout << "You scored! You now have " << score << " points.";
+                    DisplayScoringVisual();
+                    //cout << "You scored! You now have " << score << " points.";
                 }
                 else
                 {
@@ -285,6 +286,7 @@ void ThirdOffensivePosession()
         }
     }
 }
+
 void DisplayScoringVisual()
 {
     cout << "He shoots!" << endl;
