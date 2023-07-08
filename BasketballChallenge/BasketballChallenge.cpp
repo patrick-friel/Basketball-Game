@@ -10,28 +10,34 @@ using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
-// add defense
-// ben = add visuals
 // add header file
-// add for loop
-// add templated function and recursion
-// pass by refs
+// use templated function and recursion
+// use pointers and refs
+// change out while loops for do whiles
+// overtime in case game is a tie
 
 
 int answer;
 double answer2;
-int score = 0;
+int score1 = 0;
+int score2 = 0;
 bool isCorrect;
 
 
 
 int StartMenu();
 void PlayGame();
-int PlayerOption();
+int PlayerOptionOff();
+int PlayerOptionDef();
 void FirstOffensivePosession();
 void SecondOffensivePosession();
 void ThirdOffensivePosession();
+void FirstDefensivePosession();
+void SecondDefensivePosession();
+void ThirdDefensivePosession();
 void DisplayScoringVisual();
+void EndGame();
+
 
 int main()
 {
@@ -81,13 +87,21 @@ void PlayGame()
     
     FirstOffensivePosession();
 
+    FirstDefensivePosession();
+
     SecondOffensivePosession();
 
+    SecondDefensivePosession();
+
     ThirdOffensivePosession();
+
+    ThirdDefensivePosession();
+
+    EndGame();
         
 }
 
-int PlayerOption()
+int PlayerOptionOff()
 {
     int selection;
     cout << "What would you like to do?" << endl;
@@ -102,14 +116,29 @@ int PlayerOption()
     return selection;
 }
 
+int PlayerOptionDef()
+{
+    int selection;
+    cout << "What would you like to do?" << endl;
+    cout << "1) Steal" << endl;
+    cout << "2) Block Shot" << endl;
+    cin >> selection;
+    while (selection != 1 && selection != 2)
+    {
+        cout << "Please try again: ";
+        cin >> selection;
+    }
+    return selection;
+}
+
 void FirstOffensivePosession()
 {
     // game begins with the option of 2 or 3 point shot and simple math
-    
+    system("cls");
     cout << "The game begins and you are on offense. You can either shoot a 2 point shot with a 60% of making it or shoot a 3 point shot with a 40% of making it." << endl;
     int rand1 = 1 + rand() % 10;
     int prob1 = 1 + rand() % 5;
-    int selection = PlayerOption();
+    int selection = PlayerOptionOff();
 
     switch (selection)
     {
@@ -120,22 +149,27 @@ void FirstOffensivePosession()
             cin >> answer;
             if (answer == rand1 + 2)
             {
+                system("cls");
                 cout << "Correct! Calculating probability..." << endl;
+                sleep_for(nanoseconds(10));
+                sleep_until(system_clock::now() + seconds(2));
+                system("cls");
                 if (prob1 > 2)
                 {
-                    score++;
-                    score++;
+                    score1++;
+                    score1++;
                     DisplayScoringVisual();
-                    //cout << "You scored! You now have " << score << " point." << endl;
+                    cout << "You scored! You now have " << score1 << " points." << endl;
                 }
                 else
                 {
-                    cout << "You missed!" << endl;
+                    cout << "You missed! Your score remains at " << score1 << " points." << endl;
                 }
             }
             else
             {
-                cout << "You missed! Your score remains at " << score << " points." << endl;
+                system("cls");
+                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
             }
             break;
         }
@@ -145,93 +179,200 @@ void FirstOffensivePosession()
             cin >> answer;
             if (answer == 23)
             {
+                system("cls");
                 cout << "Correct! Calculating probability..." << endl;
+                sleep_for(nanoseconds(10));
+                sleep_until(system_clock::now() + seconds(2));
+                system("cls");
                 if (prob1 < 3)
                 {
-                    score++;
-                    score++;
-                    score++;
+                    score1 += 3;
                     DisplayScoringVisual();
-                    //cout << "You scored! You now have " << score << " points.";
+                    cout << "You scored! You now have " << score1 << " points." << endl;
                 }
                 else
                 {
-                    cout << "You missed!" << endl;
+                    cout << "You missed the shot! Your score remains at " << score1 << " points." << endl;
                 }
             }
             else
             {
-                cout << "You missed!" << endl;
+                system("cls");
+                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
             }
             break;
         }
     }
 }
 
-void SecondOffensivePosession()
+void FirstDefensivePosession()
 {
-    cout << "Second posession: " << endl;
     int prob1 = 1 + rand() % 5;
-    int selection = PlayerOption();
+    cout << "You are now on defense. You can either try to steal the ball with a 40% chance of success or block the shot with a 60% chance of success. What would you like to do?" << endl;
+    int selection = PlayerOptionDef();
+
     switch (selection)
     {
-    case 1:
-    {
-        cout << "You are 4 feet away form the basket. You dribble 3 feet to the left and take a shot. How far away from the basket are you? ";
-        cin >> answer;
-        if (answer == 5)
+        case 1:
         {
-            cout << "Correct! Calculating probability..." << endl;
+            system("cls");
+            cout << "You attempt to steal the ball..." << endl;
+            sleep_for(nanoseconds(10));
+            sleep_until(system_clock::now() + seconds(2));
+            system("cls");
+            if (prob1 > 3)
+            {
+                cout << "You steal the ball!! Your opponent score remains at " << score2 << " points." << endl;
+            }
+            else
+            {
+                score2 += 2;
+                cout << "You fail the steal attempt and your opponent scores. Your opponent now has " << score2 << " points." << endl;
+            }
+        }
+        break;
+        case 2:
+        {
+            system("cls");
+            cout << "You attempt to block the shot..." << endl;
+            sleep_for(nanoseconds(10));
+            sleep_until(system_clock::now() + seconds(2));
+            system("cls");
             if (prob1 > 2)
             {
-                score++;
-                score++;
-                cout << "You scored! You now have " << score << " points." << endl;
+                cout << "You block the shot!! Your opponents score remains at " << score2 << " points." << endl;
             }
             else
             {
-                cout << "You missed!" << endl;
+                score2 += 2;
+                cout << "You fail to block the shot and your opponent scores. Your opponent now has " << score2 << " points." << endl;
             }
-        }
-        else
-        {
-            cout << "You missed! Your score remains at " << score << " points." << endl;
         }
         break;
     }
-    case 2:
+}
+
+void SecondOffensivePosession()
+{
+    cout << "Second offensive posession: " << endl;
+    int prob1 = 1 + rand() % 5;
+    int selection = PlayerOptionOff();
+    switch (selection)
     {
-        cout << "You are 25 feet away from the basket. You dribble 5 feet to the left. How far are you from the basket?" << endl;
-        cin >> answer2;
-        if (answer2 == 25.5)
+        case 1:
         {
-            cout << "Correct! Calculating probability..." << endl;
-            if (prob1 < 3)
+            cout << "You are 4 feet away form the basket. You dribble 3 feet to the left and take a shot. How far away from the basket are you? ";
+            cin >> answer;
+            if (answer == 5)
+            {                     
+                system("cls");
+                cout << "Correct! Calculating probability..." << endl;
+                sleep_for(nanoseconds(10));
+                sleep_until(system_clock::now() + seconds(2));
+                system("cls");
+                if (prob1 > 2)
+                {
+                    score1++;
+                    score1++;
+                    cout << "You scored! You now have " << score1 << " points." << endl;
+                }
+                else
+                {
+                    cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                }
+            }
+            else
+            {                
+                system("cls");
+                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;                     
+            }
+            break;
+        }
+        case 2:
+        {
+            cout << "You are 25 feet away from the basket. You dribble 5 feet to the left. How far are you from the basket?" << endl;
+            cin >> answer2;
+            if (answer2 == 25.5)
             {
-                score++;
-                score++;
-                score++;
-                cout << "You scored! You you now have " << score << " points." << endl;
+                system("cls");
+                cout << "Correct! Calculating probability..." << endl;
+                sleep_for(nanoseconds(10));
+                sleep_until(system_clock::now() + seconds(2));
+                system("cls");
+                if (prob1 < 3)
+                {
+                    score1++;
+                    score1++;
+                    score1++;
+                    cout << "You scored! You you now have " << score1 << " points." << endl;
+                }
+                else
+                {
+                    cout << "You missed! Your score remains at " << score1 << " points." << endl;
+                }
             }
             else
             {
-                cout << "You missed!" << endl;
+                system("cls");
+                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
+            }
+            break;
+        }
+    }
+}
+
+void SecondDefensivePosession()
+{
+    int prob1 = 1 + rand() % 5;
+    cout << "You are back on defense for the second time." << endl;
+    int selection = PlayerOptionDef();
+
+    switch (selection)
+    {
+        case 1:
+        {
+            system("cls");
+            cout << "You attempt to steal the ball..." << endl;
+            sleep_for(nanoseconds(10));
+            sleep_until(system_clock::now() + seconds(2));
+            system("cls");
+            if (prob1 > 3)
+            {
+                cout << "You steal the ball!! Your opponent score remains at " << score2 << " points." << endl;
+            }
+            else
+            {
+                score2 += 2;
+                cout << "You fail the steal attempt and your opponent scores. Your opponent now has " << score2 << " points." << endl;
             }
         }
-        else
+        break;
+        case 2:
         {
-            cout << "You missed!" << endl;
+            system("cls");
+            cout << "You attempt to block the shot..." << endl;
+            sleep_for(nanoseconds(10));
+            sleep_until(system_clock::now() + seconds(2));
+            system("cls");
+            if (prob1 > 2)
+            {
+                cout << "You block the shot!! Your opponents score remains at " << score2 << " points." << endl;
+            }
+            else
+            {
+                score2 += 2;
+                cout << "You fail to block the shot and your opponent scores. Your opponent now has " << score2 << " points." << endl;
+            }
         }
         break;
-    }
     }
 }
 
 void ThirdOffensivePosession()
 {
-    cout << "Third posession: " << endl;
+    cout << "Third offensive posession: " << endl;
     cout << "You have been given the ball at the top of the 3 point line which is 22 feet from the basket. You can either shoot the 3 or dribble forward 2 feet and right 2 feet and shoot a 2 point shot." << endl;
-    int selection = PlayerOption();
+    int selection = PlayerOptionOff();
     int prob1 = 1 + rand() % 5;
     switch (selection)
     {
@@ -241,12 +382,16 @@ void ThirdOffensivePosession()
             cin >> answer2;
             if (answer2 == 20.1)
             {
+                system("cls");
                 cout << "Correct! Calculating probability..." << endl;
+                sleep_for(nanoseconds(10));
+                sleep_until(system_clock::now() + seconds(2));
+                system("cls");
                 if (prob1 > 2)
                 {
-                    score++;
-                    score++;
-                    cout << "You scored! You now have " << score << " points!" << endl;
+                    score1++;
+                    score1++;
+                    cout << "You scored! You now have " << score1 << " points!" << endl;
                 }
                 else
                 {
@@ -255,7 +400,8 @@ void ThirdOffensivePosession()
             }
             else
             {
-                cout << "You missed!" << endl;
+                system("cls");
+                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
             }
             break;
         }
@@ -263,15 +409,19 @@ void ThirdOffensivePosession()
         {
             cout << "You dribble back 2 feet and to the left 2 feet. How far away from the basket are you?" << endl;
             cin >> answer2;
-            if (answer == 24.08)
+            if (answer2 == 24.08)
             {
+                system("cls");
                 cout << "Correct! Calculating probabilty..." << endl;
+                sleep_for(nanoseconds(10));
+                sleep_until(system_clock::now() + seconds(2));
+                system("cls");
                 if (prob1 < 3)
                 {
-                    score++;
-                    score++;
-                    score++;
-                    cout << "You scored! You now have " << score << " points!" << endl;
+                    score1++;
+                    score1++;
+                    score1++;
+                    cout << "You scored! You now have " << score1 << " points!" << endl;
                 }
                 else
                 {
@@ -280,10 +430,80 @@ void ThirdOffensivePosession()
             }
             else
             {
-                cout << "You missed!" << endl;
+                system("cls");
+                cout << "Incorrect answer! Your score remains at " << score1 << " points." << endl;
             }
             break;
         }
+    }
+}
+
+void ThirdDefensivePosession()
+{
+    int prob1 = 1 + rand() % 5;
+    cout << "You are back on defense and its the last posession of the game." << endl;
+    int selection = PlayerOptionDef();
+
+    switch (selection)
+    {
+    case 1:
+    {
+        system("cls");
+        cout << "You attempt to steal the ball..." << endl;
+        sleep_for(nanoseconds(10));
+        sleep_until(system_clock::now() + seconds(2));
+        system("cls");
+        if (prob1 > 3)
+        {
+            cout << "You steal the ball!! Your opponent score remains at " << score2 << " points." << endl;
+        }
+        else
+        {
+            score2 += 2;
+            cout << "You fail the steal attempt and your opponent scores. Your opponent now has " << score2 << " points." << endl;
+        }
+    }
+    break;
+    case 2:
+    {
+        system("cls");
+        cout << "You attempt to block the shot..." << endl;
+        sleep_for(nanoseconds(10));
+        sleep_until(system_clock::now() + seconds(2));
+        system("cls");
+        if (prob1 > 2)
+        {
+            cout << "You block the shot!! Your opponents score remains at " << score2 << " points." << endl;
+        }
+        else
+        {
+            score2 += 2;
+            cout << "You fail to block the shot and your opponent scores. Your opponent now has " << score2 << " points." << endl;
+        }
+    }
+    break;
+    }
+}
+
+void EndGame()
+{
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(3));
+    system("cls");
+
+    cout << "The game is over! The score was " << score1 << " to " << score2 << "." << endl;
+
+    if (score1 > score2)
+    {
+        cout << "Yay, you have won the game! Congrats. See you next time." << endl;
+    }
+    else if (score1 < score2)
+    {
+        cout << "Oh no, you have lost the game! Better luck next time." << endl;
+    }
+    else
+    {
+        cout << "The game is a tie! You'll get em next time." << endl;
     }
 }
 
@@ -366,4 +586,9 @@ void DisplayScoringVisual()
     cout << "|             /T\\   /T\\" << endl;
     cout << "|              |\\   /|" << endl;
     cout << "|______________|_|_|_|___" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
 }
+
