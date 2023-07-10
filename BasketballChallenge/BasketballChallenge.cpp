@@ -310,6 +310,7 @@ void SecondOffensivePosession()
                     {
                         score1++;
                         score1++;
+                        DisplayScoringVisual();
                         cout << "You scored! You now have " << score1 << " points." << endl;
                     }
                     else
@@ -355,6 +356,7 @@ void SecondOffensivePosession()
                         score1++;
                         score1++;
                         score1++;
+                        DisplayScoringVisual();
                         cout << "You scored! You you now have " << score1 << " points." << endl;
                     }
                     else
@@ -457,6 +459,7 @@ void ThirdOffensivePosession()
                     {
                         score1++;
                         score1++;
+                        DisplayScoringVisual();
                         cout << "You scored! You now have " << score1 << " points!" << endl;
                     }
                     else
@@ -504,6 +507,7 @@ void ThirdOffensivePosession()
                         score1++;
                         score1++;
                         score1++;
+                        DisplayScoringVisual();
                         cout << "You scored! You now have " << score1 << " points!" << endl;
                     }
                     else
@@ -774,4 +778,8 @@ void DisplayMissVisual()
     cout << "               ||" << endl;
     cout << "  o <(MISSED!) ||" << endl;
     cout << "_/|\\___________||________________" << endl;
+
+    sleep_for(nanoseconds(10));
+    sleep_until(system_clock::now() + seconds(1));
+    system("cls");
 }
