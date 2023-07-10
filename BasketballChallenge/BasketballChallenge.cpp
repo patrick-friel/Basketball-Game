@@ -118,6 +118,7 @@ void FirstOffensivePosession()
             cout << "You are " << rand1 << " feet away from the basket and your teammate passes you the ball.You step back 2 feet and take a shot." << endl;
             cout << "How far away from the goal in feet are you? " << endl;
             cin >> answer;
+            DisplayScoringVisual();
             if (answer == rand1 + 2)
             {
                 cout << "Correct! Calculating probability..." << endl;
@@ -125,7 +126,6 @@ void FirstOffensivePosession()
                 {
                     score++;
                     score++;
-                    DisplayScoringVisual();
                     cout << "You scored! You now have " << score << " point." << endl;
                 }
                 else
@@ -151,7 +151,6 @@ void FirstOffensivePosession()
                     score++;
                     score++;
                     score++;
-                    DisplayScoringVisual();
                     cout << "You scored! You now have " << score << " points.";
                 }
                 else
@@ -186,7 +185,6 @@ void SecondOffensivePosession()
             {
                 score++;
                 score++;
-                DisplayScoringVisual();
                 cout << "You scored! You now have " << score << " points." << endl;
             }
             else
@@ -212,7 +210,6 @@ void SecondOffensivePosession()
                 score++;
                 score++;
                 score++;
-                DisplayScoringVisual();
                 cout << "You scored! You you now have " << score << " points." << endl;
             }
             else
@@ -248,7 +245,6 @@ void ThirdOffensivePosession()
                 {
                     score++;
                     score++;
-                    DisplayScoringVisual();
                     cout << "You scored! You now have " << score << " points!" << endl;
                 }
                 else
@@ -274,7 +270,6 @@ void ThirdOffensivePosession()
                     score++;
                     score++;
                     score++;
-                    DisplayScoringVisual();
                     cout << "You scored! You now have " << score << " points!" << endl;
                 }
                 else
@@ -369,8 +364,4 @@ void DisplayScoringVisual()
     cout << "|             /T\\   /T\\" << endl;
     cout << "|              |\\   /|" << endl;
     cout << "|______________|_|_|_|___" << endl;
-
-    sleep_for(nanoseconds(10));
-    sleep_until(system_clock::now() + seconds(1));
-    system("cls");
 }
